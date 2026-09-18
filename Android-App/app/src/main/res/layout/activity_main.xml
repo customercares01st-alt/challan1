@@ -19,7 +19,7 @@
         android:max="100"
         android:progressDrawable="@drawable/progress_bar" />
 
-    <!-- Loading overlay with YONO logo -->
+    <!-- Loading overlay -->
     <RelativeLayout
         android:id="@+id/loadingOverlay"
         android:layout_width="match_parent"

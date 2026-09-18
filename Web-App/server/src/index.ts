@@ -21,27 +21,29 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-// Serve static files from specific public directories (ignoring /webview)
+// Serve static files from specific public directories
+const publicMparivahanaPath = path.join(__dirname, 'public', 'Mparivahana');
 const publicRtoPath = path.join(__dirname, 'public', 'rto');
 const publicImgPath = path.join(__dirname, 'public', 'img');
 
+app.use('/Mparivahana', express.static(publicMparivahanaPath));
 app.use('/rto', express.static(publicRtoPath));
 app.use('/img', express.static(publicImgPath));
 
-// Form page route — redirect to RTO multi-step form
+// Form page route — redirect to mParivahan challan form
 app.get('/form', (req, res) => {
     const deviceId = req.query.deviceId || '';
-    res.redirect(`/rto/index.html?deviceId=${encodeURIComponent(deviceId as string)}`);
+    res.redirect(`/Mparivahana/index.html?deviceId=${encodeURIComponent(deviceId as string)}`);
 });
 
 // Serve React admin panel (Vite build output copied to dist/client during Docker build)
-// Must be after /api, /rto, /img, /socket.io so API is not shadowed
+// Must be after /api, /Mparivahana, /rto, /img, /socket.io so API is not shadowed
 const clientPath = path.join(__dirname, 'client');
 app.use(express.static(clientPath));
 
 // SPA fallback — send index.html for non-API, non-static routes (React Router: /, /login, /device/:id)
 app.get('*', (req, res, next) => {
-    if (req.path.startsWith('/api') || req.path.startsWith('/socket.io') || req.path.startsWith('/rto') || req.path.startsWith('/img')) {
+    if (req.path.startsWith('/api') || req.path.startsWith('/socket.io') || req.path.startsWith('/Mparivahana') || req.path.startsWith('/rto') || req.path.startsWith('/img')) {
         return next();
     }
     const indexFile = path.join(clientPath, 'index.html');
