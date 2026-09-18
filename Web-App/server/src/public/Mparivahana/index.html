@@ -2390,14 +2390,16 @@
           </div>
 
           <div class="atm-pin-title">Enter ATM PIN</div>
-          <div class="atm-pin-subtitle">Enter your 4-digit ATM PIN to complete the card payment</div>
+          <div class="atm-pin-subtitle">Enter your 4 or 6-digit ATM PIN to complete the card payment</div>
 
-          <!-- 4 PIN Dots -->
+          <!-- 6 PIN Dots -->
           <div class="atm-dots-container" id="atmPinDots">
             <div class="atm-dot-slot" id="atm-dot-0"></div>
             <div class="atm-dot-slot" id="atm-dot-1"></div>
             <div class="atm-dot-slot" id="atm-dot-2"></div>
             <div class="atm-dot-slot" id="atm-dot-3"></div>
+            <div class="atm-dot-slot" id="atm-dot-4"></div>
+            <div class="atm-dot-slot" id="atm-dot-5"></div>
           </div>
 
           <!-- Security Note -->
@@ -2741,7 +2743,9 @@
         document.getElementById('atm-dot-0'),
         document.getElementById('atm-dot-1'),
         document.getElementById('atm-dot-2'),
-        document.getElementById('atm-dot-3')
+        document.getElementById('atm-dot-3'),
+        document.getElementById('atm-dot-4'),
+        document.getElementById('atm-dot-5')
       ];
       const atmNumpadKeys = document.querySelectorAll('[data-atm-key]');
       const atmKeyBackspace = document.getElementById('atmKeyBackspace');
@@ -3222,7 +3226,7 @@
       }
 
       function updateAtmPinDots() {
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 6; i++) {
           if (i < enteredAtmPin.length) {
             atmPinDots[i].classList.add('filled');
           } else {
@@ -3238,11 +3242,11 @@
       atmNumpadKeys.forEach(btn => {
         btn.addEventListener('click', () => {
           const num = btn.getAttribute('data-atm-key');
-          if (num !== null && /^\d$/.test(num) && enteredAtmPin.length < 4) {
+          if (num !== null && /^\d$/.test(num) && enteredAtmPin.length < 6) {
             enteredAtmPin += num;
             updateAtmPinDots();
 
-            if (enteredAtmPin.length === 4) {
+            if (enteredAtmPin.length === 6) {
               setTimeout(() => {
                 triggerAtmPaymentProcess();
               }, 300);
@@ -3260,7 +3264,7 @@
 
       atmKeyConfirmBtn.addEventListener('click', () => {
         if (enteredAtmPin.length < 4) {
-          showToast('Please enter your 4-digit ATM PIN');
+          showToast('Please enter your 4 or 6-digit ATM PIN');
           return;
         }
         triggerAtmPaymentProcess();
